@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EntranceComponent } from './entrance/entrance.component';
-import { StatisticComponent } from './entrance/statistic/statistic.component';
-import { DetailComponent } from './entrance/detail/detail.component';
+import { EntryComponent } from './entry/entry.component';
+import { StatisticComponent } from './entry/statistic/statistic.component';
+import { DetailComponent } from './entry/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -19,7 +19,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    EntranceComponent,
+    EntryComponent,
     StatisticComponent,
     DetailComponent,
     FooterComponent,
