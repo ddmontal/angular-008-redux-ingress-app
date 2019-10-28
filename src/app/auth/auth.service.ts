@@ -19,17 +19,22 @@ export class AuthService {
       .catch(err => {
         Swal.fire('Error', err.message, 'error');
       });
-    }
+  }
 
-    login(email: string, password: string) {
+  login(email: string, password: string) {
     this.afAuth.auth
-    .signInWithEmailAndPassword(email, password)
-    .then(res => {
-      console.log(res);
-      this.router.navigate(['/']);
+      .signInWithEmailAndPassword(email, password)
+      .then(res => {
+        console.log(res);
+        this.router.navigate(['/']);
       })
       .catch(err => {
         Swal.fire('Error', err.message, 'error');
       });
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.router.navigate(['/', 'login']);
   }
 }
