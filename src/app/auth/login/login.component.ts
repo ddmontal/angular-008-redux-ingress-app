@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loading: boolean;
-  loadingSubscription: Subscription;
+  loadingSubscription: Subscription = new Subscription();
 
   constructor(public authService: AuthService, public store: Store<AppState>) {}
 
