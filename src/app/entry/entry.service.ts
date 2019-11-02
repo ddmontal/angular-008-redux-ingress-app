@@ -6,7 +6,7 @@ import { User } from '../auth/user.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import { filter, map } from 'rxjs/operators';
-import { SetItemsAction } from './entry.actions';
+import { SetItemsAction, UnsetItemsAction } from './entry.actions';
 import { Subscription } from 'rxjs';
 
 @Injectable({
@@ -31,6 +31,7 @@ export class EntryService {
   cancelSubscriptions() {
     this.entryListenerSub.unsubscribe();
     this.entryItemsSub.unsubscribe();
+    this.store.dispatch(new UnsetItemsAction());
   }
 
   create(entry: Entry) {
@@ -43,9 +44,7 @@ export class EntryService {
 
   destroy(uid: string) {
     const user = this.authService.getUser();
-    return this.afDB
-      .doc(`${user.uid}/entries/items/${uid}`)
-      .delete();
+    return this.afDB.doc(`${user.uid}/entries/items/${uid}`).delete();
   }
 
   private entryItems(uid: string) {

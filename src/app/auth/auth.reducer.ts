@@ -1,6 +1,7 @@
 import * as fromAuthActions from './auth.actions';
 import { User } from './user.model';
 import { actions } from './auth.actions';
+import { fromEventPattern } from 'rxjs';
 
 export interface AuthState {
   user: User;
@@ -18,7 +19,10 @@ export function authReducer(state: AuthState = initState, action: fromAuthAction
           ...action.user
         }
       };
-
+    case fromAuthActions.UNSET_USER:
+      return {
+        user: null
+      };
     default:
       return state;
   }
