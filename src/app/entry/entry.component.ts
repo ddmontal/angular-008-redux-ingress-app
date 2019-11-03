@@ -4,7 +4,7 @@ import { Entry } from './entry.model';
 import { EntryService } from './entry.service';
 import Swal from 'sweetalert2';
 import { Store } from '@ngrx/store';
-import { AppState } from '../app.reducer';
+import * as fromEntry from './entry.reducer';
 import { Subscription } from 'rxjs';
 import { ActivateLoadingAction, DeactivateLoadingAction } from '../shared/ui.actions';
 
@@ -19,7 +19,7 @@ export class EntryComponent implements OnInit, OnDestroy {
   loadingSub: Subscription = new Subscription();
   loading: boolean;
 
-  constructor(public entryService: EntryService, private store: Store<AppState>) {}
+  constructor(public entryService: EntryService, private store: Store<fromEntry.AppState>) {}
 
   ngOnInit() {
     this.store.select('ui').subscribe(ui => {

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
+import * as fromEntry from '../entry.reducer';
 import { Entry } from '../entry.model';
 import { Subscription } from 'rxjs';
 import { EntryService } from '../entry.service';
@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   itemsSub = new Subscription();
   items: Entry[];
 
-  constructor(private entryService: EntryService, private store: Store<AppState>) {}
+  constructor(private entryService: EntryService, private store: Store<fromEntry.AppState>) {}
 
   ngOnInit() {
     this.itemsSub = this.store.select('entry').subscribe(entry => {

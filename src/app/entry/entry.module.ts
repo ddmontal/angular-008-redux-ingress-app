@@ -9,9 +9,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EntryComponent } from './entry.component';
+import { StoreModule } from '@ngrx/store';
+import { entryReducer } from './entry.reducer';
 
 @NgModule({
   declarations: [DetailComponent, StatisticComponent, SortEntriesPipe, DashboardComponent, EntryComponent],
-  imports: [CommonModule, ChartsModule, SharedModule, DashboardRoutingModule, FormsModule, ReactiveFormsModule]
+  imports: [
+    CommonModule,
+    ChartsModule,
+    SharedModule,
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    StoreModule.forFeature('entry', entryReducer)
+  ]
 })
 export class EntryModule {}

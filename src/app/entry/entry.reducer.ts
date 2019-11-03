@@ -1,9 +1,14 @@
 import * as fromEntry from './entry.actions';
 import { Entry } from './entry.model';
 import { State } from '../shared/ui.reducer';
+import { AppState } from '../app.reducer';
 
 export interface EntryState {
   items: Entry[];
+}
+
+export interface AppState extends AppState {
+  entry: EntryState;
 }
 
 const initState: EntryState = {

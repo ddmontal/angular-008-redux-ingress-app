@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
 import { Entry } from '../entry.model';
-import { Label, MultiDataSet } from 'ng2-charts';
+import { Label } from 'ng2-charts';
+import { AppState } from '../entry.reducer';
 
 @Component({
   selector: 'app-statistic',
