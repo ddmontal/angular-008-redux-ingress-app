@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private authUserSubscription: Subscription;
+  private authUserSubscription: Subscription = new Subscription();
   private user: User;
 
   constructor(
